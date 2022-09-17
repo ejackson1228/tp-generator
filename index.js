@@ -1,4 +1,4 @@
-
+const generate  = require('./src/generate')
 
 // team profiles
 const Manager = require('./lib/Manager');
@@ -8,7 +8,6 @@ const Intern = require('./lib/Intern');
 // node modules
 const fs = require('fs');
 const inquirer = require('inquirer');
-const { resolve } = require('path');
 
 
 
@@ -16,6 +15,16 @@ const { resolve } = require('path');
 const employeeArray = [];
 
 const addManager = () => {
+    console.log(`
+    ======================================
+
+    Welcome to the Team Profile Generator!
+
+    Please answer all questions about your
+    team to the best of your ability!
+
+    ======================================
+    `)
     inquirer.prompt([
         {
             type: 'input',
@@ -44,7 +53,9 @@ const addManager = () => {
 
         employeeArray.push(manager);
         console.log(manager);
-    });
+        
+        addEmployee();
+    })
 };
 
 const addEmployee = () =>  {
@@ -92,10 +103,31 @@ const addEmployee = () =>  {
             },
             {
                 type: 'confirm',
-                name: 'addEmployee',
+                name: 'confirmAddEmployee',
                 message: "Would you like to add another employee?",
                 default: false
             }
 
         ])
-}
+        .then(employeeData => {
+            let { employeeName, employeeID, employeeEmail, role, github, school } = employeeData
+            let employee 
+            if (role === 'Engineer') {
+                employee = new Engineer (employeeName, employeeID, employeeEmail, github);
+                console.log(employee);
+            } else if (role === 'Intern') {
+                employee = new Intern  (employeeName, employeeID, employeeEmail, school);
+                console.log(employee);
+            }
+                employeeArray.push(employee);
+
+            if (employeeData.confirmAddEmployee === true) {
+                return addEmployee(employeeArray);
+            } else {
+                return employeeArray;
+            };
+            
+        });
+};
+
+addManager();
