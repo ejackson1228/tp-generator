@@ -1,4 +1,4 @@
-const generate  = require('./src/generate')
+const generateCardsHTML  = require('./src/generate')
 
 // team profiles
 const Manager = require('./lib/Manager');
@@ -25,7 +25,7 @@ const addManager = () => {
 
     ======================================
     `)
-    inquirer.prompt([
+    return inquirer.prompt([
         {
             type: 'input',
             name: 'managerName',
@@ -54,7 +54,7 @@ const addManager = () => {
         employeeArray.push(manager);
         console.log(manager);
         
-        addEmployee();
+       // addEmployee();
     })
 };
 
@@ -66,7 +66,7 @@ const addEmployee = () =>  {
 
     ===================
     `)
-    inquirer
+    return inquirer
         .prompt([
             {
                 type: 'list',
@@ -123,11 +123,35 @@ const addEmployee = () =>  {
 
             if (employeeData.confirmAddEmployee === true) {
                 return addEmployee(employeeArray);
-            } else {
+            } else  {
                 return employeeArray;
-            };
+            }
+           
             
         });
 };
 
-addManager();
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err =>{
+        //if error
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Success! Please view index.html to visit your Team Profile!")
+        }
+    })
+};
+
+
+addManager()
+.then(addEmployee)
+.then(employeeArray => { 
+    return generateCardsHTML(employeeArray);
+})
+.then(pageHTML => {
+    return writeFile(pageHTML);
+})
+.catch(err => {
+    console.log(err);
+});
