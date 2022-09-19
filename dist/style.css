@@ -1,0 +1,23 @@
+.page-header{
+    color: aquamarine;
+    background-color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: auto;
+}
+
+.card-top{
+    background-color: rgb(66, 210, 186);
+}
+
+.card-bottom{
+    background-color: rgb(165, 161, 161);
+}
+
+.id, .email, .school, .github, .office {
+    color: azure;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

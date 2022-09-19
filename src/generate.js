@@ -1,13 +1,13 @@
 const generateManager = function (manager) {
     return `
-    <div class="">
+    <div class="col-3">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header card-top">
                 <h3>${manager.name}</h3>
                 <h3>Manager</h3>
             </div>
 
-            <div class="card-body">
+            <div class="card-body card-bottom">
                 <p class="id"> EmployeeID: ${manager.id}</p>
                 <p class="email"> Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
                 <p class="office"> Office Number: ${manager.officeNumber}</p>
@@ -18,14 +18,14 @@ const generateManager = function (manager) {
 
 const generateEngineer = function (engineer) {
     return `
-    <div class="">
+    <div class="col-3">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header card-top">
                 <h3>${engineer.name}</h3>
                 <h3>Engineer</h3>
             </div>
 
-            <div class="card-body">
+            <div class="card-body card-bottom">
                 <p class="id"> EmployeeID: ${engineer.id}</p>
                 <p class="email"> Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
                 <p class="github"> Github: <a href="${engineer.getGithub()}">${engineer.github}</a></p>
@@ -36,14 +36,14 @@ const generateEngineer = function (engineer) {
 
 const generateIntern = function (intern) {
     return `
-    <div class="">
+    <div class="col-3">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header card-top">
                 <h3>${intern.name}</h3>
                 <h3> Intern </h3>
             </div>
 
-            <div class="card-body">
+            <div class="card-body card-bottom">
                 <p class="id"> EmployeeID: ${intern.id}</p>
                 <p class="email"> Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
                 <p class="school"> School: ${intern.school}</p>
