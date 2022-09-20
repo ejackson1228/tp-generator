@@ -11,7 +11,7 @@ const inquirer = require('inquirer');
 
 
 
-// employee array
+// array to be filled by all gathered employees
 const employeeArray = [];
 
 const addManager = () => {
@@ -48,10 +48,10 @@ const addManager = () => {
         }
     ])
     .then(managerInfo => {
-        const { managerName, managerID, managerEmail, officeNumber } = managerInfo;
-        const manager = new Manager(managerName, managerID, managerEmail, officeNumber);
+        const { managerName, managerID, managerEmail, officeNumber } = managerInfo; // define maanager data to be used
+        const manager = new Manager(managerName, managerID, managerEmail, officeNumber); // create new manager with defined data
 
-        employeeArray.push(manager);
+        employeeArray.push(manager); //push manager to employee array
         console.log(manager);
         
        // addEmployee();
@@ -93,13 +93,13 @@ const addEmployee = () =>  {
                 type: 'input',
                 name: 'github',
                 message: "What is the Engineer's github username?",
-                when: (input) => input.role === 'Engineer'
+                when: (input) => input.role === 'Engineer' // when user selects engineer as employee "type", ask this question
             },
             {
                 type: 'input',
                 name: 'school',
                 message: "What school is your intern from?",
-                when: (input) => input.role === 'Intern'
+                when: (input) => input.role === 'Intern' // when user selects intern as employee "type", ask this question
             },
             {
                 type: 'confirm',
@@ -112,30 +112,30 @@ const addEmployee = () =>  {
         .then(employeeData => {
             let { employeeName, employeeID, employeeEmail, role, github, school } = employeeData
             let employee 
-            if (role === 'Engineer') {
+            if (role === 'Engineer') { // if employee role an engineer, create a new engineer
                 employee = new Engineer (employeeName, employeeID, employeeEmail, github);
                 console.log(employee);
-            } else if (role === 'Intern') {
+            } else if (role === 'Intern') { // if employee role is intern, create a a new intern
                 employee = new Intern  (employeeName, employeeID, employeeEmail, school);
                 console.log(employee);
             }
-                employeeArray.push(employee);
+                employeeArray.push(employee); //push employee to employee array
 
-            if (employeeData.confirmAddEmployee === true) {
-                return addEmployee(employeeArray);
+            if (employeeData.confirmAddEmployee === true) { // if user chose to add another employee
+                return addEmployee(employeeArray); // return to employee "type" question
             } else  {
-                return employeeArray;
+                return employeeArray; // if user did not want more employees return the final employee array
             }
            
             
         });
 };
 
-const writeFile = data => {
+const writeFile = data => { // with the data passed, write file index.html
     fs.writeFile('./dist/index.html', data, err =>{
         //if error
         if (err) {
-            console.log(err);
+            console.log(err); // if err, display err in console
             return;
         } else {
             console.log("Success! Please view index.html to visit your Team Profile!")
