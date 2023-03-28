@@ -3,7 +3,7 @@
 
 ## Video Guide
 
-<img src="./assets/images/tp-generator-screenshot.jpg" alt="screenshot of application" width="900px" height="450px">
+<img src="./assets/images/tp-generator-screenshot.jpg" alt="screenshot of application" width="720px" height="320px">
 
 <br>
 <br>
@@ -14,7 +14,7 @@ Link to Video Guide: https://drive.google.com/file/d/14PUeVDzox-KA-tAFyESwKCbJ1P
 
 
 ## Description
-An application that generates a page for team profiles using user CL answers from an inquirer prompt. 
+An application that generates a page for team profiles using end-user answers from the command line. 
   
 ## Table of Contents
   - [Description](#description)
@@ -26,19 +26,26 @@ An application that generates a page for team profiles using user CL answers fro
   - [Questions](#questions)
 
 ## Installation
-Clone this repository and run node index in the CL.
+1. Copy this repository onto your local machine. <br>
+2. Install all packages. <br>
+3. Run `node index` <br>
+4. Answer all prompt questions to generate your team. <br>
+5. To modify, view dist/index.html.
 
 ## Usage
-Run node index and answer all the prompt questions to generate your team. Once you have finalized your team, check out index.html in the  /dist folder to see your team page. 
+Easily create a team page to keep track of team information.  
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]This application is covered under the MIT license. (https://opensource.org/licenses/MIT)
 
 ## Contributors
-Bootstrap, Node, Inquirer, Jest
+- Bootstrap (https://getbootstrap.com/)
+- Node (https://nodejs.org/en)
+- Inquirer (https://www.npmjs.com/package/inquirer)
+- Jest (https://jestjs.io/)
 
 ## Tests
-npm test 
+To run tests, run command `npm test`
 
 ## Questions? Contact me:
 GitHub: https://github.com/ejackson1228/ <br>
