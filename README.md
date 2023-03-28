@@ -3,7 +3,7 @@
 
 ## Video Guide
 
-<img src="./assets/images/tp-generator-screenshot.jpg" alt="screenshot of application" width="720px" height="320px">
+<img src="./assets/images/tp-generator-screenshot.jpg" alt="screenshot of application" width="720px" height="360px">
 
 <br>
 <br>
